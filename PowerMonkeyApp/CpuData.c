@@ -157,6 +157,8 @@ CPUCONFIGTABLE gCpuConfigTable[] = {
   { {6, 154, 3} , "AlderLake-H/P", 0, 11, 1, 1, &vcfg_q_alderlake_client },    // ADL-H/P (906A3)
   { {6, 154, 4} , "AlderLake-H/P", 0, 11, 1, 1, &vcfg_q_alderlake_client },    // ADL-H/P (906A4)
   { {6, 154, 1} , "AlderLake", 0, 11, 1, 1, &vcfg_q_alderlake_client },
+
+  { {6, 183, 1} , "RaptorLake", 0, 11, 1, 1, &vcfg_q_alderlake_client },
 };
 
 
