@@ -165,9 +165,9 @@ VOID PrintPlatformSettings(IN PLATFORM* psys)
 
 
       Print(
-        L"+-----------+-----------+-------+--------+----------+-----------+--------+\n"
-        L"| Vt Domain |  VR Addr  | SVID? | IccMax | VoltMode | Offset mV | Method |\n"
-        L"|-----------|-----------|-------|--------|----------|-----------+--------|\n"
+        L"+-----------+-----------+-------+--------+----------+-----------+-----------+\n"
+        L"| Vt Domain |  VR Addr  | SVID? | IccMax | VoltMode | Offset mV |  Method   |\n"
+        L"|-----------|-----------|-------|--------|----------|-----------+-----------|\n"
       );
 
       for (UINTN didx = 0; didx < MAX_DOMAINS; didx++) {
@@ -184,14 +184,14 @@ VOID PrintPlatformSettings(IN PLATFORM* psys)
               (dom->IccMax) ? dom->IccMax >> 2 : 0,
               &voltModeColStr[dom->VoltMode & 0x1][0],
               dom->OffsetVolts,
-              (pac->Program_VF_Points[didx] == 1) ? L"VF-Points" : L"Legacy"
+              (pac->Program_VF_Points[didx] == 1) ? L"VF-Points" : L" Legacy "
             );
           }
         }
       }
 
       Print(
-        L"+-----------+-----------+-------+--------+----------+-----------+--------+\n"
+        L"+-----------+-----------+-------+--------+----------+-----------+-----------+\n"
         L"\n");
     }
   }
