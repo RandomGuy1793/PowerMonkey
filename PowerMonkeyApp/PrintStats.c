@@ -186,6 +186,7 @@ VOID PrintPlatformSettings(IN PLATFORM* psys)
               dom->OffsetVolts,
               (pac->Program_VF_Points[didx] == 1) ? L"VF-Points" : L"Legacy"
             );
+          }
         }
       }
 
