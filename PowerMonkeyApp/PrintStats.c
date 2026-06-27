@@ -165,9 +165,9 @@ VOID PrintPlatformSettings(IN PLATFORM* psys)
 
 
       Print(
-        L"+-----------+-----------+-------+--------+----------+\n"
-        L"| Vt Domain |  VR Addr  | SVID? | IccMax | VoltMode |\n"
-        L"|-----------|-----------|-------|--------|----------|\n"
+        L"+-----------+-----------+-------+--------+----------+-----------+\n"
+        L"| Vt Domain |  VR Addr  | SVID? | IccMax | VoltMode | Offset mV |\n"
+        L"|-----------|-----------|-------|--------|----------|-----------|\n"
       );
 
       for (UINTN didx = 0; didx < MAX_DOMAINS; didx++) {
@@ -177,8 +177,8 @@ VOID PrintPlatformSettings(IN PLATFORM* psys)
           if (dom->VRaddr != INVALID_VR_ADDR) {
             Print(
               (dom->OffsetVolts < 0) ?
-              L"|%s|    0x%02x   | %s| %03u A  |%s|\n" :
-              L"|%s|    0x%02x   | %s| %03u A  |%s|\n",
+              L"|%s|    0x%02x   | %s| %03u A  |%s| %d mV|\n" :
+              L"|%s|    0x%02x   | %s| %03u A  |%s| %d mV|\n",
 
               vrDomainColStr[didx & 0x7],
 
@@ -187,14 +187,15 @@ VOID PrintPlatformSettings(IN PLATFORM* psys)
               &svidColStr[dom->VRtype & 0x1][0],
               (dom->IccMax) ? dom->IccMax >> 2 : 0,
 
-              &voltModeColStr[dom->VoltMode & 0x1][0]
+              &voltModeColStr[dom->VoltMode & 0x1][0],
+              dom->OffsetVolts
             );
           }
         }
       }
 
       Print(
-        L"+-----------+-----------+-------+--------+----------+\n"
+        L"+-----------+-----------+-------+--------+----------+-----------+\n"
         L"\n");
     }
   }
