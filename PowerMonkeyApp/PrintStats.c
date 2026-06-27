@@ -165,9 +165,9 @@ VOID PrintPlatformSettings(IN PLATFORM* psys)
 
 
       Print(
-        L"+-----------+-----------+-------+--------+----------+-----------+------------------+\n"
-        L"| Vt Domain |  VR Addr  | SVID? | IccMax | VoltMode | Offset mV | Method           |\n"
-        L"|-----------|-----------|-------|--------|----------|-----------+------------------|\n"
+        L"+-----------+-----------+-------+--------+----------+-----------+--------+\n"
+        L"| Vt Domain |  VR Addr  | SVID? | IccMax | VoltMode | Offset mV | Method |\n"
+        L"|-----------|-----------|-------|--------|----------|-----------+--------|\n"
       );
 
       for (UINTN didx = 0; didx < MAX_DOMAINS; didx++) {
@@ -176,7 +176,7 @@ VOID PrintPlatformSettings(IN PLATFORM* psys)
 
           if (dom->VRaddr != INVALID_VR_ADDR) {
             Print(
-              L"|%s|    0x%02x   | %s| %03u A  |%s| %4d mV   | %s|\n",
+              L"|%s|    0x%02x   | %s| %03u A  |%s| %4d mV   | %s |\n",
 
               vrDomainColStr[didx & 0x7],
               dom->VRaddr,
@@ -191,7 +191,7 @@ VOID PrintPlatformSettings(IN PLATFORM* psys)
       }
 
       Print(
-        L"+-----------+-----------+-------+--------+----------+-----------+------------------+\n"
+        L"+-----------+-----------+-------+--------+----------+-----------+--------+\n"
         L"\n");
     }
   }
